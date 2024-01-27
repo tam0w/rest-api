@@ -8,6 +8,10 @@ CORS(app)
 def hello_world():
     return jsonify({'message': 'Hello, World!'})
 
+@app.route('/api/send/<string:msg>')
+def send(msg):
+    return jsonify({'message': msg})
+
 
 if __name__ == '__main__':
     app.run()
