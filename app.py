@@ -8,7 +8,7 @@ CORS(app)
 def hello_world():
     return jsonify({'message': 'Hello, World!'})
 
-@app.route('/api/send/<string:msg>')
+@app.route('/api/send/<string:msg>', methods=['GET','POST'])
 def send(msg):
     return jsonify({'message': msg})
 
