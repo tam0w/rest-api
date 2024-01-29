@@ -9,7 +9,8 @@ def hello_world():
     return jsonify({'message': 'Hello, World!'})
 
 @app.route('/api/send', methods=['GET','POST'])
-def send(msg):
+def send():
+    print(request.json)
     data = request.json
     return jsonify({'message': data['message']})
 
