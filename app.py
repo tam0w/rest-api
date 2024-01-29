@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -8,9 +8,10 @@ CORS(app)
 def hello_world():
     return jsonify({'message': 'Hello, World!'})
 
-@app.route('/api/send/<string:msg>', methods=['GET','POST'])
+@app.route('/api/send', methods=['GET','POST'])
 def send(msg):
-    return jsonify({'message': msg})
+    data = request.json
+    return jsonify({'message': data['message']})
 
 
 if __name__ == '__main__':
