@@ -1,3 +1,4 @@
+import requests
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
@@ -13,6 +14,14 @@ def send():
     print(request.json)
     data = request.json
     return jsonify({'message': data['message']})
+
+@app.route('/api/match', methods=['GET','POST'])
+def send():
+    data = requests.get('https://practistics.live/getjson/F8265')
+    print(data.json())
+    return jsonify(data.json())
+
+
 
 
 if __name__ == '__main__':
