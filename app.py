@@ -18,7 +18,7 @@ def send():
     return jsonify({'message': data['message']})
 
 @app.route('/api/match', methods=['GET','POST'])
-def send():
+def match():
     global data
     print(data)
     return jsonify(data)
