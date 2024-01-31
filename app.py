@@ -23,7 +23,7 @@ def send():
     print(data)
     return jsonify(data)
 
-data = json.loads('{'all_round_data': [[['Jett', 'Phoenix', 8, 'team', 'Kill'],
+data = json.loads("""{'all_round_data': [[['Jett', 'Phoenix', 8, 'team', 'Kill'],
                      ['Omen', 'Jett', 43, 'team', 'Kill'],
                      ['Omen', 'Phoenix', 47, 'opponent', 'Spike'],
                      ['Jett', 'Omen', 54, 'team', 'Kill'],
@@ -735,7 +735,7 @@ data = json.loads('{'all_round_data': [[['Jett', 'Phoenix', 8, 'team', 'Kill'],
              False,
              False,
              True,
-             True]}')
+             True]}""")
 
 
 if __name__ == '__main__':
