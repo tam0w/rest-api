@@ -10,234 +10,44 @@ CORS(app)
 
 player_picks = {
     'tam0w' : {
-        'overall' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'bind' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25)
-    },
-        'split' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'lotus' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'ascent' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'sunset' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'icebox' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'breeze' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
+    'overall': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'split': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'bind': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'lotus': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'icebox': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'ascent': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'breeze': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'sunset': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}]
 },
-    'dog' : {
-        'overall' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'bind' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'split' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'lotus' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'ascent' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'sunset' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'icebox' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'breeze' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
+    'dog' :{
+    'overall': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'split': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'bind': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'lotus': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'icebox': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'ascent': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'breeze': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'sunset': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}]
 },
     'hmmm' : {
-        'overall' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'bind' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'split' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'lotus' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'ascent' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'sunset' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'icebox' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'breeze' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
+    'overall': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'split': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'bind': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'lotus': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'icebox': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'ascent': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'breeze': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'sunset': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}]
 },
     'kyaki' : {
-        'overall' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'bind' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'split' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'lotus' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'ascent' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'sunset' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'icebox' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    },
-        'breeze' : {
-        'jett' : random.randint(1, 25),
-        'raze' : random.randint(1, 25),
-        'phoenix' : random.randint(1, 25),
-        'sage' : random.randint(1, 25),
-        'omen' : random.randint(1, 25)
-    }
+    'overall': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'split': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'bind': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'lotus': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'icebox': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'ascent': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'breeze': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
+    'sunset': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}]
 }
 }
 
