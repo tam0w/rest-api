@@ -1,4 +1,5 @@
 import json
+import random
 
 import requests
 from flask import Flask, jsonify, request
@@ -10,252 +11,234 @@ CORS(app)
 player_picks = {
     'tam0w' : {
         'overall' : {
-        'jett' : 12,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'bind' : {
-        'jett' : 15,
-        'raze' : 2,
-        'phoenix' : 7
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25)
     },
         'split' : {
-        'jett' : 12,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'lotus' : {
-        'jett' : 17,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'ascent' : {
-        'jett' : 22,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 2,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'sunset' : {
-        'jett' : 10,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'icebox' : {
-        'jett' : 13,
-        'raze' : 1,
-        'phoenix' :2,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'breeze' : {
-        'jett' : 12,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
 },
     'dog' : {
         'overall' : {
-        'jett' : 12,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'bind' : {
-        'jett' : 15,
-        'raze' : 2,
-        'phoenix' : 7
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'split' : {
-        'jett' : 12,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'lotus' : {
-        'jett' : 17,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'ascent' : {
-        'jett' : 22,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 2,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'sunset' : {
-        'jett' : 10,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'icebox' : {
-        'jett' : 13,
-        'raze' : 1,
-        'phoenix' :2,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'breeze' : {
-        'jett' : 12,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
 },
     'hmmm' : {
         'overall' : {
-        'jett' : 12,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'bind' : {
-        'jett' : 15,
-        'raze' : 2,
-        'phoenix' : 7
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'split' : {
-        'jett' : 12,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'lotus' : {
-        'jett' : 17,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'ascent' : {
-        'jett' : 22,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 2,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'sunset' : {
-        'jett' : 10,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'icebox' : {
-        'jett' : 13,
-        'raze' : 1,
-        'phoenix' :2,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'breeze' : {
-        'jett' : 12,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
 },
     'kyaki' : {
         'overall' : {
-        'jett' : 12,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'bind' : {
-        'jett' : 15,
-        'raze' : 2,
-        'phoenix' : 7
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'split' : {
-        'jett' : 12,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'lotus' : {
-        'jett' : 17,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'ascent' : {
-        'jett' : 22,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 2,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'sunset' : {
-        'jett' : 10,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'icebox' : {
-        'jett' : 13,
-        'raze' : 1,
-        'phoenix' :2,
-        'sage' : 3,
-        'omen' : 2
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
     },
         'breeze' : {
-        'jett' : 12,
-        'raze' : 5,
-        'phoenix' : 3,
-        'sage' : 3,
-        'omen' : 2
-    },
+        'jett' : random.randint(1, 25),
+        'raze' : random.randint(1, 25),
+        'phoenix' : random.randint(1, 25),
+        'sage' : random.randint(1, 25),
+        'omen' : random.randint(1, 25)
+    }
 }
-}
-
-
-player_picks =  {
-    overall: [{name: 'Jett', value: 12}, {name: 'Raze', value: 5}, {name: 'Phoenix', value: 3}, {
-        name: 'Sage',
-        value: 3
-    }, {name: 'Omen', value: 2}],
-    split: [{name: 'Jett', value: 12}, {name: 'Raze', value: 5}, {name: 'Phoenix', value: 3}, {name: 'Omen', value: 2}],
-    bind: [{name: 'Jett', value: 12}, {name: 'Raze', value: 5}, {name: 'Phoenix', value: 3}, {name: 'Omen', value: 2}],
-    lotus: [{name: 'Jett', value: 12}, {name: 'Raze', value: 5}, {name: 'Phoenix', value: 3}, {name: 'Omen', value: 2}],
-    icebox: [{name: 'Jett', value: 12}, {name: 'Raze', value: 5}, {name: 'Phoenix', value: 3}, {
-        name: 'Omen',
-        value: 2
-    }],
-    ascent: [{name: 'Jett', value: 12}, {name: 'Raze', value: 5}, {name: 'Phoenix', value: 3}, {
-        name: 'Omen',
-        value: 2
-    }],
-    breeze: [{name: 'Jett', value: 12}, {name: 'Raze', value: 5}, {name: 'Phoenix', value: 3}, {
-        name: 'Omen',
-        value: 2
-    }],
-    sunset: [{name: 'Jett', value: 12}, {name: 'Raze', value: 5}, {name: 'Phoenix', value: 3}, {name: 'Omen', value: 2}]
 }
 
 @app.route('/')
@@ -986,9 +969,9 @@ def match():
     print(data)
     return jsonify(data)
 
-@app.route('/api/player/<player_name>:', methods=['GET','POST'])
+@app.route('/api/player/<player_name>/picks', methods=['GET','POST'])
 def player(player_name):
-    return jsonify(player_name)
+    return jsonify(player_picks[player_name])
 
 
 if __name__ == '__main__':
