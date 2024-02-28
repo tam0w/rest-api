@@ -763,8 +763,8 @@ def match():
 @app.route('/api/player/<player_name>/picks', methods=['GET','POST'])
 def player(player_name):
     return jsonify({map: [{'name': agent[1]['name'], 'value': random.randint(1,25), 'role': agent[1]['role']}
-                          for agent in random.sample(list(agents.items()),random.randint(0,7))] for map in maps})@app.route('/api/player/<player_name>/weeklystats', methods=['GET','POST'])
-
+                          for agent in random.sample(list(agents.items()),random.randint(0,7))] for map in maps})
+@app.route('/api/player/<player_name>/weeklystats', methods=['GET','POST'])
 def weekly_stats(player_name):
 
     return jsonify([{
