@@ -29,7 +29,7 @@ agents = {
     "Fade": {"name": "Fade", "role": "Initiator"},
     "Yoru": {"name": "Yoru", "role": "Duelist"},
     "Breach": {"name": "Breach", "role": "Initiator"},
-    "Kayo": {"name": "Kayo", "role": "Initiator"},
+    "KAY/O": {"name": "KAY/O", "role": "Initiator"},
 }
 
 @app.route('/')
