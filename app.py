@@ -1,12 +1,14 @@
 import json
 import random
-
+import pprint
 import requests
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
+
+maps = ['overall', 'split', 'bind', 'lotus', 'icebox', 'ascent', 'breeze', 'sunset']
 
 agents = {
     "Brimstone": {"name": "Brimstone", "role": "Controller"},
@@ -30,16 +32,7 @@ agents = {
     "Kayo": {"name": "Kayo", "role": "Initiator"},
 }
 
-player_picks = {
-    'overall': [{'name': agent[1]['name'], 'value': random.randint(0,25), 'role': agent[1]['role']} for agent in random.sample(agents.items(),7)],
-    'split': [{'name': agent, 'value': random.randint(0,25)} for agent in random.sample(agents.keys(), 7)],
-    'bind': [{'name': agent, 'value': random.randint(0,25)} for agent in random.sample(agents.keys(), 7)],
-    'lotus': [{'name': agent, 'value': random.randint(0,25)} for agent in random.sample(agents.keys(), 7)],
-    'icebox': [{'name': agent, 'value': random.randint(0,25)} for agent in random.sample(agents.keys(), 7)],
-    'ascent': [{'name': agent, 'value': random.randint(0,25)} for agent in random.sample(agents.keys(), 7)],
-    'breeze': [{'name': agent, 'value': random.randint(0,25)} for agent in random.sample(agents.keys(), 7)],
-    'sunset': [{'name': agent, 'value': random.randint(0,25)} for agent in random.sample(agents.keys(), 7)]
-}
+player_picks = {map: [{'name': agent[1]['name'], 'value': random.randint(1,25), 'role': agent[1]['role']} for agent in random.sample(agents.items(),random.randint(0,7))] for map in maps}
 
 weekly_player_performance = [
     {
