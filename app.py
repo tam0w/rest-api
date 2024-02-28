@@ -8,48 +8,80 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+agents = {
+    "Brimstone": {"name": "Brimstone", "role": "Controller"},
+    "Phoenix": {"name": "Phoenix", "role": "Duelist"},
+    "Sage": {"name": "Sage", "role": "Sentinel"},
+    "Sova": {"name": "Sova", "role": "Initiator"},
+    "Viper": {"name": "Viper", "role": "Controller"},
+    "Cypher": {"name": "Cypher", "role": "Sentinel"},
+    "Reyna": {"name": "Reyna", "role": "Duelist"},
+    "Killjoy": {"name": "Killjoy", "role": "Sentinel"},
+    "Omen": {"name": "Omen", "role": "Controller"},
+    "Astra": {"name": "Astra", "role": "Controller"},
+    "Harbor": {"name": "Harbor", "role": "Controller"}, # Role information unavailable
+    "Skye": {"name": "Skye", "role": "Initiator"},
+    "Neon": {"name": "Neon", "role": "Duelist"},
+    "Raze": {"name": "Raze", "role": "Duelist"},
+    "Chamber": {"name": "Chamber", "role": "Sentinel"},
+    "Fade": {"name": "Fade", "role": "Initiator"},
+    "Yoru": {"name": "Yoru", "role": "Duelist"},
+    "Breach": {"name": "Breach", "role": "Initiator"},
+    "Kayo": {"name": "Kayo", "role": "Initiator"},
+}
+
 player_picks = {
-    'tam0w' : {
-    'overall': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'split': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'bind': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'lotus': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'icebox': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'ascent': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'breeze': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'sunset': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}]
-},
-    'dog' :{
-    'overall': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'split': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'bind': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'lotus': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'icebox': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'ascent': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'breeze': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'sunset': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}]
-},
-    'hmmm' : {
-    'overall': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'split': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'bind': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'lotus': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'icebox': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'ascent': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'breeze': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'sunset': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}]
-},
-    'kyaki' : {
-    'overall': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'split': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'bind': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'lotus': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'icebox': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'ascent': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'breeze': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}],
-    'sunset': [{'name': 'Jett', 'value': random.randint(0,25)}, {'name': 'Raze', 'value': random.randint(0,25)}, {'name': 'Phoenix', 'value': random.randint(0,25)}, {'name': 'Sage','value': random.randint(0,25)}, {'name': 'Omen', 'value': random.randint(0,25)}]
+    'overall': [{'name': agent[1]['name'], 'value': random.randint(0,25), 'role': agent[1]['role']} for agent in random.sample(agents.items(),7)],
+    'split': [{'name': agent, 'value': random.randint(0,25)} for agent in random.sample(agents.keys(), 7)],
+    'bind': [{'name': agent, 'value': random.randint(0,25)} for agent in random.sample(agents.keys(), 7)],
+    'lotus': [{'name': agent, 'value': random.randint(0,25)} for agent in random.sample(agents.keys(), 7)],
+    'icebox': [{'name': agent, 'value': random.randint(0,25)} for agent in random.sample(agents.keys(), 7)],
+    'ascent': [{'name': agent, 'value': random.randint(0,25)} for agent in random.sample(agents.keys(), 7)],
+    'breeze': [{'name': agent, 'value': random.randint(0,25)} for agent in random.sample(agents.keys(), 7)],
+    'sunset': [{'name': agent, 'value': random.randint(0,25)} for agent in random.sample(agents.keys(), 7)]
 }
-}
+
+weekly_player_performance = [
+    {
+        'name': 'overall', 'KD': random.normalvariate(1.0, 0.5),
+        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
+        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
+    },
+    {
+        'name': 'split', 'KD': random.normalvariate(1.0, 0.5),
+        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
+        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
+    },
+    {
+        'name': 'bind', 'KD': random.normalvariate(1.0, 0.5),
+        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
+        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
+    },
+    {
+        'name': 'lotus', 'KD': random.normalvariate(1.0, 0.5),
+        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
+        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
+    },
+    {
+        'name': 'icebox', 'KD': random.normalvariate(1.0, 0.5),
+        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
+        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
+    },
+    {
+        'name': 'ascent', 'KD': random.normalvariate(1.0, 0.5),
+        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
+        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
+    },
+    {
+        'name': 'breeze', 'KD': random.normalvariate(1.0, 0.5),
+        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
+        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
+    },
+    {
+        'name': 'sunset', 'KD': random.normalvariate(1.0, 0.5),
+        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
+        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
+    },]
 
 @app.route('/')
 def hello_world():
@@ -781,7 +813,10 @@ def match():
 
 @app.route('/api/player/<player_name>/picks', methods=['GET','POST'])
 def player(player_name):
-    return jsonify(player_picks[player_name])
+    return jsonify(player_picks)
+@app.route('/api/player/<player_name>/weeklystats', methods=['GET','POST'])
+def weekly_stats(player_name):
+    return jsonify(weekly_player_performance)
 
 
 if __name__ == '__main__':
