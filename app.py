@@ -778,6 +778,18 @@ def weekly_stats(player_name):
         'one_five': max(0, round(random.normalvariate(0.05, 0.01), 2))
     } for map in maps])
 
+@app.route('/averages/<map>')
+def get_averages(map):
+    return jsonify({map: {
+        'KD': 1.0,
+        'Kdiff': 0, 'KAST': 0.65,
+        'FBPR': 0.35, 'TFB': 0.5, 'FKdiff': 0,
+        'OPkpr': 0.1, 'Clutches': 0,
+        'ADR': 125, 'clutchrate': 0.3,
+        'one_one': 0.5, 'one_two': 0.3,
+        'one_three': 0.2, 'one_four': 0.10,
+        'one_five': 0.05
+    }})
 
 if __name__ == '__main__':
     app.run()
