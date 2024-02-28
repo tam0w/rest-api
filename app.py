@@ -32,50 +32,6 @@ agents = {
     "Kayo": {"name": "Kayo", "role": "Initiator"},
 }
 
-player_picks = {map: [{'name': agent[1]['name'], 'value': random.randint(1,25), 'role': agent[1]['role']} for agent in random.sample(agents.items(),random.randint(0,7))] for map in maps}
-
-weekly_player_performance = [
-    {
-        'name': 'overall', 'KD': random.normalvariate(1.0, 0.5),
-        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
-        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
-    },
-    {
-        'name': 'split', 'KD': random.normalvariate(1.0, 0.5),
-        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
-        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
-    },
-    {
-        'name': 'bind', 'KD': random.normalvariate(1.0, 0.5),
-        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
-        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
-    },
-    {
-        'name': 'lotus', 'KD': random.normalvariate(1.0, 0.5),
-        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
-        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
-    },
-    {
-        'name': 'icebox', 'KD': random.normalvariate(1.0, 0.5),
-        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
-        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
-    },
-    {
-        'name': 'ascent', 'KD': random.normalvariate(1.0, 0.5),
-        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
-        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
-    },
-    {
-        'name': 'breeze', 'KD': random.normalvariate(1.0, 0.5),
-        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
-        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
-    },
-    {
-        'name': 'sunset', 'KD': random.normalvariate(1.0, 0.5),
-        'Kdiff': random.randint(-15,30), 'KAST': random.normalvariate(0.6, 0.3), 'FBPR': random.normalvariate(0.35, 0.2), 'TFB': random.normalvariate(0.6, 0.3), 'FKdiff': 4, 'OPkpr': random.normalvariate(0.3, 0.2), 'Clutches': random.randint(0,150), 'ADR': random.normalvariate(135,25), 'clutchrate': random.normalvariate(0.3, 0.2),
-        'one_one': random.normalvariate(0.5, 0.2), 'one_two': random.normalvariate(0.3, 0.2), 'one_three': random.normalvariate(0.2, 0.2), 'one_four': random.normalvariate(0.2, 0.2), 'one_five': random.normalvariate(0.05, 0.05)
-    },]
-
 @app.route('/')
 def hello_world():
     return jsonify({'message': 'Hello, World!'})
@@ -806,10 +762,20 @@ def match():
 
 @app.route('/api/player/<player_name>/picks', methods=['GET','POST'])
 def player(player_name):
-    return jsonify(player_picks)
+    return jsonify({map: [{'name': agent[1]['name'], 'value': random.randint(1,25), 'role': agent[1]['role']}
+                          for agent in random.sample(agents.items(),random.randint(0,7))] for map in maps})
 @app.route('/api/player/<player_name>/weeklystats', methods=['GET','POST'])
 def weekly_stats(player_name):
-    return jsonify(weekly_player_performance)
+    return jsonify([{
+        'name': map, 'KD': round(random.normalvariate(1.0, 0.5), 2),
+        'Kdiff': random.randint(-15, 30), 'KAST': round(random.normalvariate(0.6, 0.3), 2),
+        'FBPR': round(random.normalvariate(0.35, 0.2), 2), 'TFB': round(random.normalvariate(0.6, 0.3), 2), 'FKdiff': 4,
+        'OPkpr': round(random.normalvariate(0.3, 0.2), 2), 'Clutches': random.randint(0, 150),
+        'ADR': round(random.normalvariate(135, 25), 2), 'clutchrate': round(random.normalvariate(0.3, 0.2), 2),
+        'one_one': round(random.normalvariate(0.5, 0.2), 2), 'one_two': round(random.normalvariate(0.3, 0.2), 2),
+        'one_three': round(random.normalvariate(0.2, 0.2), 2), 'one_four': round(random.normalvariate(0.2, 0.2), 2),
+        'one_five': round(random.normalvariate(0.05, 0.05), 2)
+    } for map in maps])
 
 
 if __name__ == '__main__':
