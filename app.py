@@ -764,18 +764,18 @@ def match():
 def player(player_name):
     return jsonify({map: [{'name': agent[1]['name'], 'value': random.randint(1,25), 'role': agent[1]['role']}
                           for agent in random.sample(list(agents.items()),random.randint(0,7))] for map in maps})
+
 @app.route('/api/player/<player_name>/weeklystats', methods=['GET','POST'])
 def weekly_stats(player_name):
-
     return jsonify([{
-        'name': map, 'KD': truncated_normal(0.9,0.3,0,3),
-        'Kdiff': random.randint(-15, 30), 'KAST': truncated_normal(0.6,0.3,0,1),
-        'FBPR': truncated_normal(0.4,0.3,0,1), 'TFB': truncated_normal(0.4,0.3,0,1), 'FKdiff': random.randint(0, 30),
-        'OPkpr': truncated_normal(0.1,0.3,0,1), 'Clutches': random.randint(0, 150),
-        'ADR': max(0, round(random.normalvariate(135, 25), 2)), 'clutchrate': truncated_normal(0.4,0.3,0,1),
-        'one_one': truncated_normal(0.5,0.3,0,1), 'one_two': truncated_normal(0.4,0.2,0,1),
-        'one_three': truncated_normal(0.2,0.1,0,1), 'one_four': truncated_normal(0.2,0.05,0,1),
-        'one_five': truncated_normal(0.05,0.01,0,1)
+        'name': map, 'KD': round(truncated_normal(0.9,0.3,0,3), 1),
+        'Kdiff': random.randint(-15, 30), 'KAST': round(truncated_normal(0.6,0.3,0,1), 1),
+        'FBPR': round(truncated_normal(0.4,0.3,0,1), 1), 'TFB': round(truncated_normal(0.4,0.3,0,1), 1), 'FKdiff': random.randint(0, 30),
+        'OPkpr': round(truncated_normal(0.1,0.3,0,1), 1), 'Clutches': random.randint(0, 150),
+        'ADR': max(0, round(random.normalvariate(135, 25), 2)), 'clutchrate': round(truncated_normal(0.4,0.3,0,1), 1),
+        'one_one': round(truncated_normal(0.5,0.3,0,1), 1), 'one_two': round(truncated_normal(0.4,0.2,0,1), 1),
+        'one_three': round(truncated_normal(0.2,0.1,0,1), 1), 'one_four': round(truncated_normal(0.2,0.05,0,1), 1),
+        'one_five': round(truncated_normal(0.05,0.01,0,1), 1)
     } for map in maps])
 
 @app.route('/averages/<map>')
