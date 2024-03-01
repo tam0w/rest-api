@@ -768,14 +768,14 @@ def player(player_name):
 def weekly_stats(player_name):
 
     return jsonify([{
-        'name': map, 'KD': max(0, round(random.normalvariate(1.0, 0.5), 2)),
-        'Kdiff': random.randint(-15, 30), 'KAST': max(0, round(random.normalvariate(0.6, 0.3), 2)),
-        'FBPR': max(0, round(random.normalvariate(0.35, 0.2), 2)), 'TFB': max(0, round(random.normalvariate(0.6, 0.3), 2)), 'FKdiff': random.randint(0, 30),
-        'OPkpr': max(0, round(random.normalvariate(0.3, 0.2), 2)), 'Clutches': random.randint(0, 150),
-        'ADR': max(0, round(random.normalvariate(135, 25), 2)), 'clutchrate': max(0, round(random.normalvariate(0.3, 0.2), 2)),
-        'one_one': max(0, round(random.normalvariate(0.5, 0.2), 2)), 'one_two': max(0, round(random.normalvariate(0.3, 0.2), 2)),
-        'one_three': max(0, round(random.normalvariate(0.2, 0.2), 2)), 'one_four': max(0, round(random.normalvariate(0.2, 0.2), 2)),
-        'one_five': max(0, round(random.normalvariate(0.05, 0.01), 2))
+        'name': map, 'KD': truncated_normal(0.9,0.3,0,3),
+        'Kdiff': random.randint(-15, 30), 'KAST': truncated_normal(0.6,0.3,0,1),
+        'FBPR': truncated_normal(0.4,0.3,0,1), 'TFB': truncated_normal(0.4,0.3,0,1), 'FKdiff': random.randint(0, 30),
+        'OPkpr': truncated_normal(0.1,0.3,0,1), 'Clutches': random.randint(0, 150),
+        'ADR': max(0, round(random.normalvariate(135, 25), 2)), 'clutchrate': truncated_normal(0.4,0.3,0,1),
+        'one_one': truncated_normal(0.5,0.3,0,1), 'one_two': truncated_normal(0.4,0.2,0,1),
+        'one_three': truncated_normal(0.2,0.1,0,1), 'one_four': truncated_normal(0.2,0.05,0,1),
+        'one_five': truncated_normal(0.05,0.01,0,1)
     } for map in maps])
 
 @app.route('/averages/<map>')
@@ -793,3 +793,9 @@ def get_averages(map):
 
 if __name__ == '__main__':
     app.run()
+
+def truncated_normal(mean, std_dev, min_val, max_val):
+    value = random.normalvariate(mean, std_dev)
+    while value < min_val or value > max_val:
+        value = random.normalvariate(mean, std_dev)
+    return value
