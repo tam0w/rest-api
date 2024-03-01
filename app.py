@@ -778,7 +778,7 @@ def weekly_stats(player_name):
         'one_five': round(truncated_normal(0.05,0.01,0,1), 2)
     } for map in maps])
 
-@app.route('/averages/<stat>}')
+@app.route('/averages/<stat>')
 def get_averages(stat):
 
     if stat:
