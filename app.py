@@ -784,7 +784,7 @@ def get_averages(stat):
     if stat:
         return jsonify([{'name':stat, 'map':map, 'value': round(truncated_normal(0.7,0.3,0,1), 2)} for map in maps])
     else:
-        return jsonify({
+        data = {
             'KD': 1.0,
             'Kdiff': 0, 'KAST': 0.65,
             'FBPR': 0.35, 'TFB': 0.5, 'FKdiff': 0,
@@ -793,7 +793,11 @@ def get_averages(stat):
             'one_one': 0.5, 'one_two': 0.3,
             'one_three': 0.2, 'one_four': 0.10,
             'one_five': 0.05
-        })
+        }
+
+        list_of_dicts = [{'name': k, 'value': v} for k, v in data.items()]
+
+        return jsonify(list_of_dicts)
 
 if __name__ == '__main__':
     app.run()
