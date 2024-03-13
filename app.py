@@ -9,6 +9,7 @@ app = Flask(__name__)
 CORS(app)
 
 maps = ['overall', 'split', 'bind', 'lotus', 'icebox', 'ascent', 'breeze', 'sunset']
+sites = [3, 2, 2, 3, 2, 2, 2, 3]
 
 agents = {
     "Brimstone": {"name": "Brimstone", "role": "Controller"},
@@ -799,6 +800,61 @@ def get_averages(stat):
         list_of_dicts = [{'name': k, 'value': v} for k, v in data.items()]
 
         return jsonify(list_of_dicts)
+@app.route('/api/maps/<map>')
+def get_map_data(map):
+
+    mapwise_maps = [map != 'overall' for map in maps]
+
+    times_picked = random.randint(5, 100)
+    win_prob = random.randint(40, 60) / 100
+    rounds = times_picked * 24
+    rounds_won = rounds * win_prob
+    rounds_lost = rounds - rounds_won
+    attack_rounds = rounds // 2
+    defense_rounds = rounds // 2
+    defense_winrate = (win_prob*defense_rounds) / defense_rounds
+    attack_winrate = (win_prob*attack_rounds) / defense_rounds
+
+    meta = {
+        'name': map,
+        'picks': times_picked,
+        'total_played': random.randint(60, 300),
+        'rounds_played': rounds,
+        'sites': sites[maps.index(map)],
+    }
+
+    winrates = {
+        'rounds_won': rounds_won,
+        'rounds_lost': rounds_lost,
+        'round_winrate': rounds_won / rounds,
+        'attack_rounds': attack_rounds,
+        'defense_rounds': defense_rounds,
+        'attack_winrate': attack_winrate,
+        'defense_winrate': defense_winrate,
+        'post_plant_winrate': round(truncated_normal(0.4,0.3,0,1), 2),
+        'retake_winrate': round(truncated_normal(0.4,0.3,0,1), 2),
+        'clutches_won': random.randint(0, 10),
+        'clutch_winrate': round(truncated_normal(0.4,0.3,0,1), 2),
+    }
+
+    sitewise = {
+        site: {
+            'rounds_won': random.randint(0, 100),
+            'rounds_lost': random.randint(0, 100),
+            'round_winrate': round(truncated_normal(0.4,0.3,0,1), 2),
+            'attack_rounds': random.randint(0, 100),
+            'defense_rounds': random.randint(0, 100),
+            'attack_winrate': round(truncated_normal(0.4,0.3,0,1), 2),
+            'defense_winrate': round(truncated_normal(0.4,0.3,0,1), 2),
+            'post_plant_winrate': round(truncated_normal(0.4,0.3,0,1), 2),
+            'retake_winrate': round(truncated_normal(0.4,0.3,0,1), 2),
+            'concede_rate': round(truncated_normal(0.4,0.3,0,1), 2),
+            'anchor_times': random.randint(0, 100),
+        } for site in sites[mapwise_maps.index(map)]
+    }
+
+
+    return jsonify({meta, winrates, sitewise})
 
 if __name__ == '__main__':
     app.run()
