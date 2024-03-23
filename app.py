@@ -800,6 +800,7 @@ def get_averages(stat):
         list_of_dicts = [{'name': k, 'value': v} for k, v in data.items()]
 
         return jsonify(list_of_dicts)
+
 @app.route('/api/maps/<map>')
 def get_map_data(map):
 
@@ -855,6 +856,10 @@ def get_map_data(map):
 
 
     return jsonify({meta, winrates, sitewise})
+
+@app.route('/overwolf/login', methods=['POST'])
+def login():
+    return jsonify({'name': 'Tamim Muhammed', 'id': '1611'})
 
 if __name__ == '__main__':
     app.run()
