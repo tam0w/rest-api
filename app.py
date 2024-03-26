@@ -859,6 +859,7 @@ def get_map_data(map):
 
 @app.route('/overwolf/login', methods=['POST'])
 def login():
+    print(request.json)
     return render_template('htmxapp.html')
 
 if __name__ == '__main__':
